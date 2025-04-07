@@ -25,7 +25,7 @@ public class GuiMain extends Application {
         // Parent root = FXMLLoader.load(getClass().getResource("garden_gui.fxml"));
         Button root = new Button("TODO: design garden planner GUI");
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 
