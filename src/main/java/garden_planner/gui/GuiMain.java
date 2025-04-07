@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -21,7 +22,7 @@ import javafx.stage.Stage;
  */
 public class GuiMain extends Application {
 
-    private GardenPlanner planner;
+    private final GardenPlanner planner;
     private TextField widthField;
 
     public GuiMain() {
@@ -39,8 +40,22 @@ public class GuiMain extends Application {
         BorderPane root = new BorderPane();
         root.setCenter(gardenPane);
 
-        widthField = new javafx.scene.control.TextField("Cool Text");
-        root.setBottom(widthField);
+        VBox propertyBox = new VBox(5); // spacing 5 pixels between fields
+        propertyBox.setStyle("-fx-padding: 10; -fx-background-color: #dddddd;");
+
+        widthField = new TextField();
+        TextField heightField = new TextField("???");
+        TextField leftField = new TextField("???");
+        TextField topField = new TextField("???");
+
+        propertyBox.getChildren().addAll(
+                new javafx.scene.control.Label("Width:"), widthField,
+                new javafx.scene.control.Label("Height:"), heightField,
+                new javafx.scene.control.Label("Left:"), leftField,
+                new javafx.scene.control.Label("Top:"), topField
+        );
+
+        root.setRight(propertyBox); // Adds Propery box to scene, on the right side.
 
         for (RectBed bed : planner.getBeds()) {
             Rectangle rect = new Rectangle();
@@ -54,8 +69,13 @@ public class GuiMain extends Application {
             gardenPane.getChildren().add(rect);
         }
 
+        RectBed first = planner.getBeds().get(0);
+        widthField.setText(Double.toString(first.getWidth()));
+        heightField.setText(Double.toString(first.getHeight()));
+        leftField.setText(Double.toString(first.getLeft()));
+        topField.setText(Double.toString(first.getTop()));
 
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 1000, 500); // Add extra width to incorporate PropertyBox
         primaryStage.setTitle("Garden Planner");
         primaryStage.setScene(scene);
         primaryStage.show(); // Display scene
