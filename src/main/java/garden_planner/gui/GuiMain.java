@@ -55,7 +55,7 @@ public class GuiMain extends Application {
                 new javafx.scene.control.Label("Top:"), topField
         );
 
-        root.setRight(propertyBox); // Adds Propery box to scene, on the right side.
+        root.setRight(propertyBox); // Adds Property box to scene, on the right side.
 
         for (RectBed bed : planner.getBeds()) {
             Rectangle rect = new Rectangle();
