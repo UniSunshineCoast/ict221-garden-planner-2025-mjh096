@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 public class GuiMain extends Application {
 
     private GardenPlanner planner;
+    private TextField widthField;
 
     public GuiMain() {
         planner = new GardenPlanner();
@@ -29,11 +31,16 @@ public class GuiMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        // Parent root = FXMLLoader.load(getClass().getResource("garden_gui.fxml"));
-
-        Pane root = new Pane();
-        Scene scene = new Scene(root, 800, 600);
         final int SCALE = 100;
+
+        Pane gardenPane = new Pane();
+        gardenPane.setStyle("-fx-background-color: #007700;");
+
+        BorderPane root = new BorderPane();
+        root.setCenter(gardenPane);
+
+        widthField = new javafx.scene.control.TextField("Cool Text");
+        root.setBottom(widthField);
 
         for (RectBed bed : planner.getBeds()) {
             Rectangle rect = new Rectangle();
@@ -44,11 +51,12 @@ public class GuiMain extends Application {
             rect.setHeight(bed.getHeight() * SCALE);
 
             rect.setFill(Color.LIGHTBLUE);
-            root.getChildren().add(rect);
+            gardenPane.getChildren().add(rect);
         }
 
-        root.setStyle("-fx-background-color: #007700;");
-        primaryStage.setTitle("Hello World");
+
+        Scene scene = new Scene(root, 800, 600);
+        primaryStage.setTitle("Garden Planner");
         primaryStage.setScene(scene);
         primaryStage.show(); // Display scene
 
