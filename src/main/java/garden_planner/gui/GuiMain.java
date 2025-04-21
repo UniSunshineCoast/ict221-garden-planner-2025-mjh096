@@ -1,18 +1,14 @@
 package garden_planner.gui;
 
+import garden_planner.model.GardenBed;
 import garden_planner.model.GardenPlanner;
-import garden_planner.model.RectBed;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -57,7 +53,7 @@ public class GuiMain extends Application {
 
         root.setRight(propertyBox); // Adds Property box to scene, on the right side.
 
-        for (RectBed bed : planner.getBeds()) {
+        for (GardenBed bed : planner.getBeds()) {
             Rectangle rect = new Rectangle();
 
             rect.setX(bed.getLeft() * SCALE);
@@ -69,7 +65,7 @@ public class GuiMain extends Application {
             gardenPane.getChildren().add(rect);
         }
 
-        RectBed first = planner.getBeds().get(0);
+        GardenBed first = planner.getBeds().get(0);
         widthField.setText(Double.toString(first.getWidth()));
         heightField.setText(Double.toString(first.getHeight()));
         leftField.setText(Double.toString(first.getLeft()));
