@@ -16,6 +16,10 @@ public class RunGui {
         **/
         //System.setProperty("javafx.cachedir", "C:\\Scratch\\UFOLDER\\.openjfx\\cache");
 
+        // Run the standard implementation
         GuiMain.main(args);
+
+        // Run the implementation with the optional requirements
+        // GuiMainOpt.main(args);
     }
 }

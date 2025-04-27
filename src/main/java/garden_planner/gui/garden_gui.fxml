@@ -1,6 +1,33 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.BorderPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<BorderPane fx:controller="garden_planner.gui.Controller"
-            xmlns:fx="http://javafx.com/fxml">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="garden_planner.gui.Controller">
+   <center>
+      <Pane fx:id="garden" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Width" />
+                  <Label text="Height" />
+                  <Label text="Area" />
+                  <Label text="Perimeter" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="width" />
+                  <TextField fx:id="height" />
+                  <TextField fx:id="area" />
+                  <TextField fx:id="perimeter" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </left>
 </BorderPane>

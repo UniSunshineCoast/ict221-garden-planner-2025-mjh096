@@ -2,6 +2,7 @@ package garden_planner.textui;
 
 import garden_planner.model.GardenBed;
 import garden_planner.model.GardenPlanner;
+import garden_planner.model.RectBed;
 
 import java.io.File;
 import java.io.FileNotFoundException;
