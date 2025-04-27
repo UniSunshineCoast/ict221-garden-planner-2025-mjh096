@@ -2,32 +2,49 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="garden_planner.gui.Controller">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="garden_planner.gui.Controller">
    <center>
       <Pane fx:id="garden" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="199.0" text="Details for 1st garden bed:" textFill="#0105f5">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Width" />
-                  <Label text="Height" />
-                  <Label text="Area" />
-                  <Label text="Perimeter" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Width" />
+                        <Label text="Height" />
+                        <Label text="Area" />
+                        <Label text="Perimeter" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="width" />
+                        <TextField fx:id="height" />
+                        <TextField fx:id="area" editable="false" />
+                        <TextField fx:id="perimeter" editable="false" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <TextField fx:id="width" />
-                  <TextField fx:id="height" />
-                  <TextField fx:id="area" />
-                  <TextField fx:id="perimeter" />
-               </children>
-            </VBox>
+            </HBox>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="Summary" textAlignment="CENTER" textFill="#2f0be4">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="summary" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+            <Button fx:id="addRect" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Add Rect" />
+            <Button fx:id="addCircle" mnemonicParsing="false" text="Add Circle" />
          </children>
-      </HBox>
+      </VBox>
    </left>
 </BorderPane>

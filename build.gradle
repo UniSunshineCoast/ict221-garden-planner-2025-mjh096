@@ -49,7 +49,7 @@ sourceSets.main {
     }
     resources {
         // we also look for resources (like *.fxml) in src/main/java
-        srcDirs = ['src/main/java', 'src/main/resources']
+        srcDirs = ['src/main/java', 'src/main/java/garden_planner/resources']
         exclude "**/*.java"
     }
 }
